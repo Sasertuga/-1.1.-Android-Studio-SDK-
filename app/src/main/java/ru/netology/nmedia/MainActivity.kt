@@ -33,10 +33,7 @@ class MainActivity : AppCompatActivity() {
             authorName.text = post.author
             countLikes.text = post.likes.toString()
             if (post.likedByMe) binding.likes.setImageResource(R.drawable.ic_is_like)
-
         }
-
-
 
         binding.likes.setOnClickListener {
             post.likedByMe = !post.likedByMe
@@ -49,13 +46,11 @@ class MainActivity : AppCompatActivity() {
             else binding.countLikes.text = (post.likes).toString()
         }
 
-        var countShare = 0
-
         binding.share.setOnClickListener {
-            countShare += 1
-
-            binding.countShare.text = getFormattedNumber(countShare)
+            post.countShare += 1
+            binding.countShare.text = getFormattedNumber(post.countShare)
         }
+
     }
 }
 
