@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.netology.nmedia.ExampleUnitTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-07-26T17:41:43" hostname="DESKTOP-RS4D8AL" time="0.004">
+  <properties/>
+  <testcase name="addition_isCorrect" classname="ru.netology.nmedia.ExampleUnitTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
