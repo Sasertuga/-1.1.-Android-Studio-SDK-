@@ -50,6 +50,7 @@
         android:background="@android:color/transparent"
         android:minWidth="48dp"
         android:minHeight="48dp"
+        android:backgroundTint="@color/white"
         android:src="@drawable/ic_icon_option_24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -72,7 +73,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/barrier"
         tools:text="@tools:sample/lorem/random"
-        app:layout_constrainedHeight="true"/>
+        app:layout_constrainedHeight="false"/>
 
 
     <androidx.appcompat.widget.AppCompatImageButton
@@ -103,6 +104,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:backgroundTint="@color/cardview_dark_background"
         android:background="@android:color/transparent"
         android:src="@drawable/ic_baseline_share_24"
         app:layout_constraintStart_toEndOf="@id/count_likes"
@@ -134,6 +136,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="@android:color/transparent"
+        android:backgroundTint="@color/white"
         android:minWidth="24dp"
         android:minHeight="24dp"
         android:src="@drawable/ic_baseline_visibility_24"
