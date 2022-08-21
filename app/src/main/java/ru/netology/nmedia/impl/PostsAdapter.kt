@@ -3,7 +3,6 @@ package ru.netology.nmedia.impl
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.PopupMenu
-import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -75,17 +74,14 @@ internal class PostsAdapter(
                 textPost.text = post.content
                 authorText.text = post.published
                 authorName.text = post.author
-                countLikes.text = numberCalculation(post.likes)
-                countShare.text = numberCalculation(post.countShare)
-                likes.setImageResource(getLikeIconResId(post.likedByMe))
+                likes.text = numberCalculation(post.likes)
+                share.text = numberCalculation(post.countShare)
                 options.setOnClickListener { popupMenu.show() }
+                likes.isChecked = post.likedByMe
             }
         }
 
 
-        @DrawableRes
-        private fun getLikeIconResId(liked: Boolean) =
-            if (liked) R.drawable.ic_is_like else R.drawable.ic_baseline_favorite_border_24
 
          private fun numberCalculation(number: Int): String {
              if (number < 1000) return "" + number
