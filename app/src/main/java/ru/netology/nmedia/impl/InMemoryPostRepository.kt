@@ -21,7 +21,8 @@ class InMemoryPostRepository : PostRepository {
                 published = "21.$index.2022",
                 likes = 999,
                 likedByMe = false,
-                countShare = 0
+                countShare = 0,
+                video = "https://www.youtube.com/watch?v=sQB1cPS2MzI"
             )
         }
     )

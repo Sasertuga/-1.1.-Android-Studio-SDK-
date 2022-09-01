@@ -14,9 +14,8 @@ import kotlin.math.pow
 
 
 internal class PostsAdapter(
-   private val interactionListener: PostInteractionListener
+    private val interactionListener: PostInteractionListener
 ) : ListAdapter<Post, PostsAdapter.ViewHolder>(DiffCallback) {
-
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,8 +29,7 @@ internal class PostsAdapter(
     }
 
 
-
-     class ViewHolder(
+    class ViewHolder(
         private val binding: PostBinding,
         listener: PostInteractionListener
     ) : RecyclerView.ViewHolder(binding.root) {
@@ -47,7 +45,7 @@ internal class PostsAdapter(
                             listener.onRemoveClicked(post)
                             true
                         }
-                        R.id.edit -> {
+                        R.id.editPost -> {
                             listener.onEditClicked(post)
                             true
                         }
@@ -57,15 +55,19 @@ internal class PostsAdapter(
             }
         }
 
-         init {
-             binding.likes.setOnClickListener {
-                 listener.onLikeClicked(post)
-             }
 
-             binding.share.setOnClickListener {
-                 listener.onShareClicked(post)
-             }
-         }
+
+        init {
+            binding.likes.setOnClickListener {
+                listener.onLikeClicked(post)
+            }
+            binding.share.setOnClickListener {
+                listener.onShareClicked(post)
+            }
+            binding.playIcon.setOnClickListener {
+                listener.onPlayVideo(post.video)
+            }
+        }
 
         fun bind(post: Post) {
             this.post = post
@@ -78,19 +80,20 @@ internal class PostsAdapter(
                 share.text = numberCalculation(post.countShare)
                 options.setOnClickListener { popupMenu.show() }
                 likes.isChecked = post.likedByMe
+
             }
         }
 
 
 
-         private fun numberCalculation(number: Int): String {
-             if (number < 1000) return "" + number
-             val exp = (ln(number.toDouble()) / ln(1000.0)).toInt()
-             return String.format(
-                 "%.1f %c", number / 1000.0.pow(exp.toDouble()),
-                 "kMISTYPE"[exp - 1]
-             )
-         }
+        private fun numberCalculation(number: Int): String {
+            if (number < 1000) return "" + number
+            val exp = (ln(number.toDouble()) / ln(1000.0)).toInt()
+            return String.format(
+                "%.1f %c", number / 1000.0.pow(exp.toDouble()),
+                "kMISTYPE"[exp - 1]
+            )
+        }
     }
 
     private object DiffCallback : DiffUtil.ItemCallback<Post>() {

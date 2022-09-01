@@ -66,7 +66,7 @@
         android:layout_marginBottom="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/author_Text"
+        app:layout_constraintTop_toBottomOf="@id/video"
         tools:text="Мы и наши партнеры сохраняем и / или используем информацию на устройстве, например уникальные идентификаторы в файлах cookie, в целях обработки личной информации. Чтобы подтвердить или изменить свой выбор, нажмите ниже. Помимо прочего, здесь вы можете воспользоваться своим правом на возражение против законных интересов, если обработка осуществляется на их основании. Сделать это также можно в любое время на странице политики конфиденциальности. Ваши настройки будут переданы нашим партнерам и не будут влиять на данные просмотра."
         app:layout_constrainedHeight="false"/>
 
@@ -123,5 +123,31 @@
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="text_Post" />
+
+    <FrameLayout
+        android:id="@+id/video"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:foregroundGravity="top"
+        app:layout_constraintTop_toBottomOf="@id/author_Text"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/text_Post"
+        android:background="@drawable/preview"
+        />
+
+    <ImageButton
+        android:id="@+id/playIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/video"
+        app:layout_constraintEnd_toEndOf="@id/video"
+        app:layout_constraintTop_toTopOf="@id/video"
+        app:layout_constraintBottom_toBottomOf="@id/video"
+        android:src="@drawable/ic_play_24"
+        android:background="@android:color/transparent"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
