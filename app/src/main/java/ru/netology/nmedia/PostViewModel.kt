@@ -1,13 +1,16 @@
 package ru.netology.nmedia
 
 import SingleLiveEvent
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import ru.netology.nmedia.impl.InMemoryPostRepository
+import ru.netology.nmedia.impl.FilePostRepository
 import ru.netology.nmedia.impl.PostInteractionListener
 
-class PostViewModel : ViewModel(), PostInteractionListener {
-    private val repository: PostRepository = InMemoryPostRepository()
+class PostViewModel(
+    application: Application
+) : AndroidViewModel(application), PostInteractionListener {
+    private val repository: PostRepository = FilePostRepository(application)
     val data by repository::data
 
     val playVideo = SingleLiveEvent<String>()
@@ -44,8 +47,8 @@ class PostViewModel : ViewModel(), PostInteractionListener {
         navigateToPostContentScreenEvent.value = post.content
     }
 
-    override fun onPlayVideo(url: String) {
-        playVideo.value = url
+    override fun onPlayVideo(uri: String) {
+        playVideo.value = uri
     }
 
     fun onAddClicked() {
